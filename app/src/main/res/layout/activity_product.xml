@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   * Grocery App
+   * Created by : Akash Sharma sharma18akash@gmail.com
+   -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProductActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_3" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/groceries_side" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/groceries_side" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/groceries_side" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99FFFFFF">
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:elevation="20dp">
+
+        <Button
+            android:id="@+id/list_to_grid"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_shuffle"
+            android:onClick="onToggleClicked" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:elevation="20dp">
+
+        <Button
+            android:id="@+id/proceed_to_checkout"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textSize="16dp"
+            android:background="@drawable/shop_button_bg"
+            android:onClick="openCartActivity"
+            android:textColor="@color/white"
+            android:text="Proceed"/>
+
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/progress_bar"
+        layout="@layout/progressbar"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "725309012280",
+    "firebase_url": "https://maheshwari-stores.firebaseio.com",
+    "project_id": "maheshwari-stores",
+    "storage_bucket": "maheshwari-stores.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725309012280:android:470aebfc5d3d8b5fcfe9cd",
+        "android_client_info": {
+          "package_name": "com.maheshwari.stores.grocerystore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725309012280-kcl2v4a0msha7aqfh3f91uf71corv7kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5lILZeUztQcRUtaauQ9IMK9pB3qg_-VA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725309012280-kcl2v4a0msha7aqfh3f91uf71corv7kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

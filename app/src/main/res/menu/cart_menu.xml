@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   * Grocery App
+   * Created by : Akash Sharma sharma18akash@gmail.com
+   -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/cart_delete"
+        android:icon="@drawable/ic_baseline_remove_shopping_cart_24"
+        android:orderInCategory="105"
+        android:title="@string/action_Cart"
+        app:showAsAction="always" />
+
+</menu>
