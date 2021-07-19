@@ -20,6 +20,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
+
         <activity
             android:name="com.maheshwari.stores.grocerystore.activity.WelcomeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -41,6 +42,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name="sdk.pendo.io.activities.PendoGateActivity" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="pendo-b86dfa96"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="b86dfa96" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.maheshwari.stores.grocerystore.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -67,6 +82,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
+
+        <meta-data android:name="insert_debug_logging" android:value="true" />
+
         <!-- Firebase Notifications -->
         <service android:name="com.maheshwari.stores.grocerystore.service.MyFirebaseMessagingService"
             android:exported="false">

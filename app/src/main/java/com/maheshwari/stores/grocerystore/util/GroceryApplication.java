@@ -1,5 +1,6 @@
 package com.maheshwari.stores.grocerystore.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.app.NotificationChannel;
@@ -19,6 +20,11 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.maheshwari.stores.grocerystore.R;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import sdk.pendo.io.Pendo;
 
 public class GroceryApplication extends Application {
     private static final String TAG = GroceryApplication.class.getSimpleName();
@@ -43,6 +49,34 @@ public class GroceryApplication extends Application {
         super.onCreate();
         initFirebaseServiceInstances();
         createNotificationChannel();
+        initPendoSDK();
+    }
+
+    @SuppressLint("MissingPermission")
+    private void initPendoSDK() {
+        Pendo.PendoInitParams pendoParams = new Pendo.PendoInitParams();
+        pendoParams.setVisitorId("Akash Sharma");
+        pendoParams.setAccountId("Pendo Test");
+
+        //send Visitor Level Data
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("age", "29");
+        userData.put("country", "India");
+        pendoParams.setVisitorData(userData);
+
+        //send Account Level Data
+        Map<String, Object> accountData = new HashMap<>();
+        accountData.put("Tier", "1");
+        accountData.put("Size", "Enterprise");
+        pendoParams.setAccountData(accountData);
+
+        String pendoAppKey = "eyJhbGciOiJSUzI1NiIsImtpZCI6IiIsInR5cCI6IkpXVCJ9.eyJkYXRhY2VudGVyIjoidXMiLCJrZXkiOiI0M2UyYWU1MTExOWI2YTY4NzM0Y2M2NTczZGNkOTBmMzdjMThkYWZlZTdjNjI5NjE0OWExZmZjYWQwZWQ5MjE5NTZlNjY2MDEwMzA0NTFlMzdmMmRmNDdkMTlkOTEzMDM2ZDg5NGQwYmU0OGIxOTA2MmYzYmMyMjI3M2QyZGZkOWMyN2I4ODU3ZTY3MTliZjI4MjU0YWNkYjZhOWQ4ZmQ5LmVhMWEwNTVlNjljNjVhMDhlMjYyNzdlNTg1YjZkYThlLjQ3YWI0ZTRlZGE1Yzc3ZjhjYWY0ZDdhYWEzY2Y5OGRlZWJmMjlhOGFmYTBkNjczZDhhODBjYWQzMmU4ZTZhNjcifQ.l54bwl7Fz29BqxxDlK1e0r7EkqNb1KoKarGCdtEsBeNYaalAfhdXXUhOH15-GEzpycXfkdyExNLZyWDsatVukwF5QApt0pnKcuplUFFHNicN4vTbNnnrxPU4E36_pHGWR6C8HEiu7F8JDOw-TPbwwBHTcbHijicmJR4F98RzFZk";
+
+        Pendo.initSDK(
+                this,
+                pendoAppKey,
+                pendoParams);
+
     }
 
     public void initFirebaseServiceInstances()

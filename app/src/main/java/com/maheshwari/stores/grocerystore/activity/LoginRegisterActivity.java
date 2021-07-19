@@ -13,6 +13,11 @@ import com.maheshwari.stores.grocerystore.R;
 import com.maheshwari.stores.grocerystore.fragment.LoginFragment;
 import com.maheshwari.stores.grocerystore.util.Utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import sdk.pendo.io.Pendo;
+
 
 public class LoginRegisterActivity extends AppCompatActivity {
     private static FragmentManager fragmentManager;
@@ -42,6 +47,22 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
                     }
                 });
+
+        Pendo.PendoInitParams pendoParams = new Pendo.PendoInitParams();
+        pendoParams.setVisitorId("Akash Sharma");
+        pendoParams.setAccountId("Pendo Test");
+
+        //send Visitor Level Data
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("age", "29");
+        userData.put("country", "India");
+        pendoParams.setVisitorData(userData);
+
+        //send Account Level Data
+        Map<String, Object> accountData = new HashMap<>();
+        accountData.put("Tier", "1");
+        accountData.put("Size", "Enterprise");
+        pendoParams.setAccountData(accountData);
 
     }
 

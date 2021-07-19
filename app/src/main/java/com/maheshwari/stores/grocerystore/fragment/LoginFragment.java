@@ -39,9 +39,13 @@ import com.maheshwari.stores.grocerystore.util.CustomToast;
 import com.maheshwari.stores.grocerystore.util.Utils;
 import com.maheshwari.stores.grocerystore.util.localstorage.LocalStorage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import sdk.pendo.io.Pendo;
 
 
 public class LoginFragment extends Fragment implements OnClickListener {
@@ -196,8 +200,18 @@ public class LoginFragment extends Fragment implements OnClickListener {
             vibrate(200);
         } else {
             user = new User(getMobile, getPassword);
+
+            //track Pendo Login user event
+            Map<String, Object> clickEventProp = new HashMap<>();
+            clickEventProp.put("user", getMobile);
+            clickEventProp.put("propertyID",String.valueOf(1));
+            Pendo.track("User Logged In", clickEventProp);
+
+
             login(user);
         }
+
+
     }
 
     private void login(User user) {

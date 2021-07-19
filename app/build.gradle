@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.maheshwari.stores.grocerystore"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -17,12 +17,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 allprojects {
     repositories {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven {
+            url "https://software.mobile.pendo.io/artifactory/applause-android-sdk-shared"
+        }
+        maven {
+            url "https://software.mobile.pendo.io/artifactory/android-release"
+        }
+        maven {
+            url "https://software.mobile.pendo.io/artifactory/android-staging"
+        }
+        mavenCentral()
     }
 }
 
@@ -57,6 +70,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+    implementation group:'sdk.pendo.io' , name:'pendoIO', version:'2.10.0.1998', changing:true
 }
 apply plugin: 'com.google.gms.google-services'
 // Apply the Crashlytics Gradle plugin
